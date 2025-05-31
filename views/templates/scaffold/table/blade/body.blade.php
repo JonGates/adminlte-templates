@@ -1,4 +1,27 @@
+@php
+    // 使用 getRoutePrefixWith('.') 方法获取正确格式的路由前缀
+    $route = $config->prefixes->getRoutePrefixWith('.') . $config->modelNames->camelPlural . '.index';
+    $placeholder = '搜索' . $config->modelNames->humanPlural . '...';
+    $fields = [];
+    // 获取所有字段并包含htmlType信息
+    foreach($config->fields as $field) {
+        $fields[$field->name] = [
+            'htmlType' => $field->htmlType,
+            'label' => $field->name,
+        ];
+    }
+@endphp
+
+@include('vendor.adminlte-templates.common.search', [
+        'route' => $route,
+        'placeholder' => $placeholder,
+        'fields' => $fields
+    ])
+
+
 <div class="card-body p-0">
+
+
     <div class="table-responsive">
         <table class="table" id="{{ $config->modelNames->dashedPlural }}-table">
             <thead>
