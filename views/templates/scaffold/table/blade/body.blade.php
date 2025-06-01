@@ -12,7 +12,7 @@
     }
 @endphp
 
-@include('vendor.adminlte-templates.common.search', [
+@include('adminlte-templates::common.search', [
         'route' => $route,
         'placeholder' => $placeholder,
         'fields' => $fields
