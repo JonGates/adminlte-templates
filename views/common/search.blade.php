@@ -3,7 +3,7 @@
         <h3 class="card-title">高级搜索</h3>
     </div>
     <div class="card-body">
-        <form action="{{ route($route, [], false) }}" method="GET" id="advanced-search-form">
+        <form action="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.index') }}" method="GET" id="advanced-search-form">
             <div id="search-conditions-container">
                 <!-- 搜索条件行将通过JS动态生成 -->
             </div>
@@ -16,7 +16,7 @@
             
             <div>
                 <button type="submit" class="btn btn-primary">搜索</button>
-                <a href="{{ route($route, [], false) }}" class="btn btn-default ml-2">重置</a>
+                <a href="@{{ route('{!! $config->prefixes->getRoutePrefixWith('.') !!}{!! $config->modelNames->camelPlural !!}.index') }}" class="btn btn-default ml-2">重置</a>
             </div>
         </form>
     </div>
